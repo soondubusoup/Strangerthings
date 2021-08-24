@@ -24,6 +24,9 @@ const Posts = () => {
           <div className="some">
             <br />
             <h3>{post.title}</h3>
+            
+            <h3>{post.location}</h3>
+            
             <br />
             <span>{post.description}</span>
           </div>
@@ -34,3 +37,5 @@ const Posts = () => {
 };
 
 export default Posts;
+
+

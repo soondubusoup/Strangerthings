@@ -3,4 +3,6 @@ export { default as AccountForm } from "./AccountForm"
 export { default as Home } from "./Home"
 export { default as Login } from "./Login"
 export { default as NewPost } from "./NewPost"
+export { default as Messages} from "./Messages"
+
 

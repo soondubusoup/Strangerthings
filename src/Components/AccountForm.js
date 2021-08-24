@@ -1,14 +1,15 @@
 import React, {useState} from "react"
-import { useParams } from 'react-router'
+import { useParams, useHistory } from 'react-router'
 import { Link } from 'react-router-dom'
 
 const baseURL = "https://strangers-things.herokuapp.com/api/2105-SJS-RM-WEB-PT";
 
 
-const AccountForm = ({setToken}) => {
+const AccountForm = ({setToken, user, setUser}) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
+  const history = useHistory()
   const params = useParams();
   
 
@@ -27,22 +28,31 @@ const AccountForm = ({setToken}) => {
         },
         body: JSON.stringify({
           user: {
-            username: 'superman27',
-            password: 'krypt0n0rbust'
+            username,
+            password
           }
         })
       })
       
       const respObj = await resp.json();
-      // if(respObj.data) {
-      //   setToken(respObj.data.token);
-      //   setGuest(respObj.data.guest);
-      //   if (respObj.data.token) {
-      //     history.push('/');
-      //   }
-      // }
       console.log(respObj)
       setToken(respObj.data.token)
+
+      if(respObj.data) {       
+          const fetchUser = await fetch(`${baseURL}/users/me`, {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${respObj.data.token}`
+          },
+        })
+        const result = await fetchUser.json();
+        const data=result;
+        if (data.data) {setUser(data.data)}
+        console.log('user:', user)
+      
+    
+        history.push('/')
+      }
           
       
       }}>
