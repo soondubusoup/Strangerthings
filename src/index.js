@@ -5,7 +5,7 @@ import {
   Route,
   Switch,
   withRouter,
-  Link,
+  Link
 } from "react-router-dom";
 import {
   Posts,
@@ -13,7 +13,7 @@ import {
   Home,
   Login,
   NewPost,
-  Messages,
+  Messages
 } from "./Components/index.js";
 import "./style.css";
 
@@ -21,7 +21,6 @@ const baseURL = "https://strangers-things.herokuapp.com/api/2105-SJS-RM-WEB-PT";
 
 const App = () => {
   const [token, setToken] = useState("");
-  const [guest, setGuest] = useState("");
   const [login, setLogin] = useState(false);
   const [user, setUser] = useState({})
   // const [postId, setPostId] = usestate(null)
@@ -46,16 +45,16 @@ const App = () => {
         <Link to="/account/login">Login</Link>
       )}
       <Route exact path="/">
-        <h1> Stranger's Things</h1>
+        <Home user={user} token={token} />
       </Route>
       <Route path="/posts">
-        <Posts />
+        <Posts user={user} token={token} />
       </Route>
       <Route path="/account/:method">
         <Login setUser={setUser} />
       </Route>
       <Route exact path="/account/:method">
-        <AccountForm setToken={setToken} setUser={setUser} user={user}/>
+        <AccountForm setToken={setToken} setUser={setUser} user={user} />
       </Route>
       <Route path="/newpost">
         <NewPost token={token} />

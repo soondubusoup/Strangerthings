@@ -1,13 +1,13 @@
 import React from "react";
 
-const Home = ({username}) => {
+const Home = ({user, token}) => {
   return (
     <>
-      <h1>Home</h1>
+      <h1>Stranger's Things</h1>
       {
-        username ? <div>
-        You are logged in as {username}
-      </div> : ''
+        token ? <div>
+        You are logged in as {user.username}
+      </div> : 'Hi friend :P'
       } 
     </>
   );

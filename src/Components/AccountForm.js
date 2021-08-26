@@ -15,7 +15,6 @@ const AccountForm = ({setToken, user, setUser}) => {
 
   return (
      <>
-      {/* <h1>Register</h1> */}
       <div>This is the {params.method} method</div>
       <form onSubmit={async (event) => {
         event.preventDefault()
@@ -35,7 +34,7 @@ const AccountForm = ({setToken, user, setUser}) => {
       })
       
       const respObj = await resp.json();
-      console.log(respObj)
+      console.log("respObj", respObj)
       setToken(respObj.data.token)
 
       if(respObj.data) {       
@@ -47,7 +46,11 @@ const AccountForm = ({setToken, user, setUser}) => {
         })
         const result = await fetchUser.json();
         const data=result;
-        if (data.data) {setUser(data.data)}
+        if (data.data) {
+          setUser(data.data)
+          
+        }
+          
         console.log('user:', user)
       
     

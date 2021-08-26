@@ -17,7 +17,7 @@ return (
       return (
         <div className="some">
           <br />
-          <h3>{message.fromUser.username}</h3>
+          <h3>Message:{message.fromUser.username}</h3>
           
           <h3>{message.content}</h3>
           
