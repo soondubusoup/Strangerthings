@@ -1,14 +1,14 @@
 import React, { useState } from "react"
-
+import { useHistory } from "react-router";
 const baseURL = "https://strangers-things.herokuapp.com/api/2105-SJS-RM-WEB-PT";
 
-const NewPost = ({token}) => {
+const NewPost = ({token, fetchPosts}) => {
     const [title, setTitle] = useState ('')
     const [description, setDescription] = useState('')
     const [price, setPrice] = useState('')
     const [location, setLocation] = useState('')
     const [willDeliver, setWillDeliver] = useState(false)
-
+    const history = useHistory()
     return <> 
     <h1>Create Post</h1>
 
@@ -32,10 +32,10 @@ const NewPost = ({token}) => {
             })
             }).then(response => response.json())
             .then(result => {
-                console.log(result);
             })
-            
             .catch(console.error);
+            fetchPosts()
+            history.push("./")
         }}>
         
         <fieldset>
@@ -66,6 +66,7 @@ const NewPost = ({token}) => {
             </select>
         </fieldset>
          <button type="submit">Post</button>   
+         
             
         </form>
 

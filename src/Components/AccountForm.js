@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const baseURL = "https://strangers-things.herokuapp.com/api/2105-SJS-RM-WEB-PT";
 
 
-const AccountForm = ({setToken, user, setUser}) => {
+const AccountForm = ({setToken, setUser}) => {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
@@ -34,7 +34,7 @@ const AccountForm = ({setToken, user, setUser}) => {
       })
       
       const respObj = await resp.json();
-      console.log("respObj", respObj)
+      
       setToken(respObj.data.token)
 
       if(respObj.data) {       
@@ -48,10 +48,10 @@ const AccountForm = ({setToken, user, setUser}) => {
         const data=result;
         if (data.data) {
           setUser(data.data)
+         
           
         }
           
-        console.log('user:', user)
       
     
         history.push('/')
