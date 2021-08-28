@@ -11,7 +11,6 @@ import {
   Posts,
   AccountForm,
   Home,
-  Login,
   NewPost,
   Messages,
   PostView
@@ -75,11 +74,8 @@ const App = () => {
         <Route exact path="/">
           <Home {...props} />
         </Route>
-        <Route path="/posts">
+        <Route exact path="/posts">
           <Posts {...props} />
-        </Route>
-        <Route path="/account/:method">
-          <Login {...props}/>
         </Route>
         <Route exact path="/account/:method">
           <AccountForm {...props} />
