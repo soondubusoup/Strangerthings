@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import SinglePost from "./SinglePost";
+import Search from "./Search";
 import { Link } from "react-router-dom";
 import { useParams } from "react-router";
 
@@ -20,6 +21,7 @@ const Posts = ({ user, token, posts, fetchPosts }) => {
   return (
     <>
       {posts.map((post) => (
+        
         <SinglePost
           key={post._id}
           post={post}
@@ -34,6 +36,8 @@ const Posts = ({ user, token, posts, fetchPosts }) => {
           )}
           {post && <Link to={`/posts/${post._id}`}> View Post </Link>}
           {post && <Link to={`/edit/${post._id}`}> Edit Post </Link>}
+          
+          
         </SinglePost>
       ))}
     </>

@@ -1,20 +1,26 @@
-import React, { useEffect, useState } = from 'react';
+import React, { useState } from 'react';
+import SinglePost from './SinglePost';
 
-const Search = ({posts, setPosts}) => {
-    const[searchTerm, SetSearchTerm] = useState('')
-
-    const postMatches = (post, text) => {
-        let check = post.includes(text);
-        return check;
+const Search = ({fetchPosts, posts, setPosts}) => {
+    // const [filteredPosts, setFilteredPosts] = useState([])
+    const [query, setQuery] = useState('')
+    const [isTitle, setIsTitle] = useState(true);
+    
+    const handleFilter = async () => {
+        let filteredPosts
+        isTitle 
+            ? filteredPosts = posts.filter(post => post.title.toLowerCase().includes( query.toLowerCase() ))
+            : filteredPosts = posts.filter(post => post.description.toLowerCase().includes( query.toLowerCase() ))
+        // setFilteredPosts(filteredPosts);
+        setPosts(filteredPosts);
+        query === '' && await fetchPosts();
     }
 
-    const filteredPosts = posts.filter(post => postMatches(post.title.toLowerCase(), searchTerm)
-
-    const postsToDisplay = searchTerm.length ? filteredPosts : posts;
-
-    return <>
-        <form className="searchform" onSubmit={ (event) {
-            event.preventDefault();
-            postsToDisplay.map(postToDisplay => <div key={postToDisplay._id} }></form>
-        }
+    return <form className='search-form' onChange={handleFilter}>
+        <input name='search' type='text' placeholder='FILTER POSTS' className='search-input' value={query} onChange={(e)=> setQuery(e.target.value)} />       
+        <button type='submit'className='search-button' >reset</button>
+        <div></div>
+    </form>
 }
+
+export default Search;

@@ -15,6 +15,7 @@ import {
   Messages,
   PostView,
   EditPost,
+  Search
 } from "./";
 
 const baseURL = "https://strangers-things.herokuapp.com/api/2105-SJS-RM-WEB-PT";
