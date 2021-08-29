@@ -30,6 +30,10 @@ const Posts = ({user, token, posts, fetchPosts}) => {
           post && <Link to={`/posts/${post._id}`}> View Post </Link>
           
         }
+        {
+          post && <Link to={`/edit/${post._id}`}> Edit Post </Link>
+          
+        }
         </SinglePost>)
         
       }

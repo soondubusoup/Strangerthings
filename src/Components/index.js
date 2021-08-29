@@ -8,5 +8,6 @@ export { default as App} from "./App"
 export { default as SinglePost} from "./SinglePost"
 export { default as MessageForm} from "./MessageForm"
 export { default as PostView} from "./Postview"
+export { default as EditPost} from "./EditPost"
 
 

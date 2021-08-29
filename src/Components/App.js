@@ -13,7 +13,8 @@ import {
   Home,
   NewPost,
   Messages,
-  PostView
+  PostView,
+  EditPost
 } from "./";
 
 
@@ -88,6 +89,9 @@ const App = () => {
         </Route>
         <Route exact path="/posts/:postId">
             <PostView {...props}/>
+        </Route>
+        <Route exact path="/edit/:postId">
+            <EditPost {...props}/>
         </Route>
         
       </div>
