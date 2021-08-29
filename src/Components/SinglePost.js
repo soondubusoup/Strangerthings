@@ -12,10 +12,10 @@ const SinglePost = ({children, post, user, token, fetchPosts}) => {
         ? <div className="some">
             
             <h3>{post.title}</h3>
-            
+            <h3>{post.author.username}</h3>
             <h3>{post.location}</h3>
 
-            <span>{post.description}</span>
+            <div>{post.description}</div>
             <span> 
                 {
                     children
