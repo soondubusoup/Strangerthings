@@ -54,10 +54,14 @@ const App = () => {
 
   return (
     <div id="content">
+      {/* <Link to="/">Home</Link> | <Link to="/newpost">New Post</Link> |{" "}
+      <Link to="/posts">Posts</Link> |{" "}
+      <Link to="/account/register">Register</Link> |{" "}
+      <Link to="/profile">Profile</Link> |{" "} */}
       <Link to="/">Home</Link> | <Link to="/newpost">New Post</Link> |{" "}
       <Link to="/posts">Posts</Link> |{" "}
       <Link to="/account/register">Register</Link> |{" "}
-      <Link to="/profile">Profile</Link> |{" "}
+      {token ? <Link to="/profile">Profile</Link> : null }
       {token ? (
         <button
           onClick={() => {
