@@ -54,10 +54,7 @@ const App = () => {
 
   return (
     <div id="content">
-      {/* <Link to="/">Home</Link> | <Link to="/newpost">New Post</Link> |{" "}
-      <Link to="/posts">Posts</Link> |{" "}
-      <Link to="/account/register">Register</Link> |{" "}
-      <Link to="/profile">Profile</Link> |{" "} */}
+      <center>
       <Link to="/">Home</Link> | <Link to="/newpost">New Post</Link> |{" "}
       <Link to="/posts">Posts</Link> |{" "}
       <Link to="/account/register">Register</Link> |{" "}
@@ -95,6 +92,7 @@ const App = () => {
       <Route exact path="/edit/:postId">
         <EditPost {...props} />
       </Route>
+      </center>
     </div>
   );
 };

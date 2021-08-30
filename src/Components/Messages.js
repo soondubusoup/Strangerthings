@@ -41,7 +41,7 @@ const Messages = ({ user, token }) => {
     <div className="content">
       <h1>Genshin</h1>
       {
-        // userMessages ?
+      
         userMessages?.map((message) => {
           return (
             <div className="some">
