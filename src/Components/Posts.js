@@ -36,7 +36,12 @@ const Posts = ({ user, token, posts, fetchPosts,setPosts }) => {
             ""
           )}
           {post && <Link to={`/posts/${post._id}`}> View Post </Link>}
-          {post && <Link to={`/edit/${post._id}`}> Edit Post </Link>}
+          
+
+          {(user._id === post.author._id) ?
+            post && <Link to={`/edit/${post._id}`}> Edit Post </Link>
+          : ""
+          }
 
 
         </SinglePost>

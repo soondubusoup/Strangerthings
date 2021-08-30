@@ -57,7 +57,8 @@ const App = () => {
       <center>
       <Link to="/">Home</Link> | <Link to="/newpost">New Post</Link> |{" "}
       <Link to="/posts">Posts</Link> |{" "}
-      <Link to="/account/register">Register</Link> |{" "}
+      {token ? null :<Link to="/account/register">Register</Link> }
+      {" "} {" "}
       {token ? <Link to="/profile">Profile</Link> : null }
       {token ? (
         <button
