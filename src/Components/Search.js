@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import SinglePost from './SinglePost';
 
 const Search = ({fetchPosts, posts, setPosts}) => {
-    // const [filteredPosts, setFilteredPosts] = useState([])
+
     const [query, setQuery] = useState('')
     const [isTitle, setIsTitle] = useState(true);
     
@@ -11,7 +11,6 @@ const Search = ({fetchPosts, posts, setPosts}) => {
         isTitle 
             ? filteredPosts = posts.filter(post => post.title.toLowerCase().includes( query.toLowerCase() ))
             : filteredPosts = posts.filter(post => post.description.toLowerCase().includes( query.toLowerCase() ))
-        // setFilteredPosts(filteredPosts);
         setPosts(filteredPosts);
         query === '' && await fetchPosts();
     }

@@ -23,7 +23,6 @@ const MessageForm = ({ posts, token, fetchPosts, post }) => {
       .then((result) => {})
       .catch(console.error);
     history.push("./");
-    // fetch vacations again
   };
   return (
     <>
